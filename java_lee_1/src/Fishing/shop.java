@@ -26,6 +26,7 @@ public class shop {
 				System.out.println(food+"개 구입 성공!");
 			}}
 		if(input==2) {
+			while(input2!=4) {
 			System.out.println("1번: Normal 낚싯대 : 39000원");
 			System.out.println("2번: Rare 낚싯대 : 45000원");
 			System.out.println("3번: Unique 낚싯대 : 49000원");
@@ -46,12 +47,12 @@ public class shop {
 				System.out.println("Unique 낚싯대를 구입하셨습니다.");
 				FishingRod rod3 = new FishingRod();
 				myrod = rod3.Unique;
-			}else {
-				break;
+			}
+			
 			}
 		}
 		if(input==3) {
-			System.out.println("1.물고기판매      2.낚싯대 판매");
+			System.out.println("1.물고기판매  2.낚싯대 판매  3.상위메뉴로");
 			System.out.print(">>");
 			input3 = sc.nextInt();
 			if(input3==1) {
@@ -68,8 +69,9 @@ public class shop {
 					System.out.println("현재 보유 Money는 "+money+"원 입니다.");
 				}
 				if(input4==2) {
-					break;
+					continue;
 				}
+				
 			}
 		}
 
