@@ -27,7 +27,8 @@ public class FileClass_01 {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("새로 쓰기 완료");
+		finally {
+		System.out.println("새로 쓰기 완료");}
 	}
 
 }

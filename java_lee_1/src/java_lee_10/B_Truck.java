@@ -8,4 +8,5 @@ public class B_Truck extends B_Car {
 	void Box(int jim) {
 		this.jim = jim;
 	}
+	
 }
