@@ -1,18 +1,21 @@
-package Fishing;
-import java.util.*;
-public class shop {
-	Scanner sc = new Scanner(System.in);
-	int input; // 처음 입력 변수
-	int input2; //구입용 입력 변수
-	public static int food; // 먹이
-	static int money=500000; //수중에 가지고 있는돈 초기값 50000
-	public static int foodnum;
-	public static String myrodName;
+package Fishing_1;
+
+
+
+	import java.util.*;
+	public class shop {
+		Scanner sc = new Scanner(System.in);
+		int input; // 처음 입력 변수
+		int input2; //구입용 입력 변수
+		public static int food; // 먹이
+		static int money=500000; //수중에 가지고 있는돈 초기값 50000
+		public static int foodnum;
+		public static String myrodName;
 	
 		
 		login log =new login();
-		int o=log.k;
 		
+		int o=log.k;
 		public void enterShop() {
 		
 			
@@ -53,8 +56,9 @@ public class shop {
 					}
 					else {
 					System.out.println("Normal 낚싯대를 구입하셨습니다.");
-					FishingRod rod1 = new FishingRod();
-					myrodName = rod1.noraml;
+					fishingrod rod1 = new fishingrod();
+					
+					myrodName = rod1.Normal;
 					money -= 39000;
 					System.out.println("현재 보유 Money는 "+money+"원 입니다.");
 					System.out.println();
@@ -68,9 +72,9 @@ public class shop {
 					System.out.println("Rare 낚싯대를 구입하셨습니다.");
 					System.out.println("현재 보유 Money는 "+money+"원 입니다.");
 					System.out.println();
-					FishingRod rod2 = new FishingRod();
+					fishingrod rod2 = new fishingrod();
 					
-					myrodName = rod2.rare;
+					myrodName = rod2.Rare;
 					money -= 45000;	
 					System.out.println();
 					}
@@ -85,9 +89,9 @@ public class shop {
 					System.out.println("Unique 낚싯대를 구입하셨습니다.");
 					System.out.println("현재 보유 Money는 "+money+"원 입니다.");
 					System.out.println();
-					FishingRod rod3 = new FishingRod();
+					fishingrod rod3 = new fishingrod();
 					
-					myrodName = rod3.unique;
+					myrodName = rod3.Unique;
 					
 					System.out.println();
 					}
@@ -108,11 +112,9 @@ public class shop {
 				System.out.print(">>");
 				input2 = sc.nextInt();
 				if(input2==1) {
+					fishes fishes=new fishes();
 					//내 수족관에 있는 물고기 정보를 가져온다.
-					game gm = new game();
-					int sum = gm.SeaNumber+gm.FreshNumber;
-					System.out.println("현재 보유한 총 물고기 수: "+sum+"마리");
-					System.out.println("한 마리에 5000원 입니다.");
+					System.out.println("현재 보유한 물고기수: "+fishes.num);
 					//물고기들의 이름과 가격정보를 보여준다 , 모두 판매로 안하면 엄청 복잡해짐
 					System.out.println("모두 판매하시겠습니까? Yes:1번");
 					System.out.println("상위 메뉴 Go:2번");
@@ -120,9 +122,9 @@ public class shop {
 					input2 = sc.nextInt();
 					if(input2==1) {
 						// 물고기 금액에 맞는 돈을 money에 +해서 대입한다.
-						money +=sum*5000;
-						System.out.println("판매되었습니다.");
+						System.out.println(fishes.price+"원에 판매되었습니다.");
 						// money + 시키기
+						money+=	fishes.price;
 						System.out.println("현재 보유 Money는 "+money+"원 입니다.");
 						System.out.println();
 					}
@@ -149,8 +151,10 @@ public class shop {
 
 }
 while(input!=4);
-			System.out.println(log.save+"님의 정보");
-			System.out.println("돈: "+money+" 낚시대: "+myrodName+"미끼 수: "+foodnum);
+			shoplist fishshop2=new shoplist(log.necname, money, myrodName, food);
+			
+			System.out.println(fishshop2.necname+"님의 장비");
+		System.out.println("돈: "+fishshop2.money+"낚시대: "+fishshop2.myrodName+"미끼 수: "+foodnum);
 			log.gamem();
 			
 			

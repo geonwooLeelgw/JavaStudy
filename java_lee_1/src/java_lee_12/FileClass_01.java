@@ -28,7 +28,8 @@ public class FileClass_01 {
 			e.printStackTrace();
 		}
 		finally {
-		System.out.println("새로 쓰기 완료");}
+		System.out.println("새로 쓰기 완료");
+		}
 	}
 
 }
